@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     bool jump;
     public Animator anim;
     float lastYPos;
+    public float distanceFrom;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        distanceFrom += Time.deltaTime; 
         CheckForInput();
         PlayFallingAnim();
     }
