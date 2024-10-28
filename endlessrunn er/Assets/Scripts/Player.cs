@@ -13,7 +13,11 @@ public class Player : MonoBehaviour
     public Animator anim;
     float lastYPos;
     public float distanceFrom;
-
+    public UIController uiController;
+    public bool AirJump;
+    public int coinsCollected;
+    public bool shieldActive;
+    public GameObject shield;
     private void Start()
     {
         lastYPos = transform.position.y;
@@ -54,11 +58,19 @@ public class Player : MonoBehaviour
 
     void CheckForInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isGrounded == true || AirJump == true)
         {
-            jump = true;
-            anim.SetTrigger("Jump");
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if(AirJump == true && isGrounded == false)
+                {
+                    AirJump = false;
+                }
+                jump = true;
+                anim.SetTrigger("Jump");
+            }
         }
+        
     }
     void CheckForGround()
     {
@@ -79,5 +91,44 @@ public class Player : MonoBehaviour
         
         }
         Debug.DrawRay(raycastOrigin.position, Vector2.down * raycastDistance, Color.green);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("Obstacle"))
+        {
+            if (shieldActive == true)
+            {
+                shield.SetActive(false);
+                Destroy(collision.gameObject);
+                shieldActive = false;
+            }
+            else 
+            {
+                uiController.ShowGameOverScreen();
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Coin"))
+        {
+            coinsCollected++;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.CompareTag("AirJump"))
+        {
+            AirJump = true;
+            Destroy(collision.gameObject);
+        }
+        
+        if (collision.CompareTag("Shield"))
+        {
+            shieldActive = true;
+            shield.SetActive(true);
+            Destroy(collision.gameObject);
+        }
     }
 }

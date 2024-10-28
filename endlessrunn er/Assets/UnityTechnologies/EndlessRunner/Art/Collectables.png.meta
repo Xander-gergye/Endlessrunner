@@ -60,7 +60,7 @@ TextureImporter:
       213: 21300036
     second: Collectables_18
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,11 +77,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -120,6 +121,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -131,6 +134,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -143,6 +147,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
@@ -174,9 +179,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 172
-        y: 928
+        y: 930
         width: 45
-        height: 62
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,9 +199,9 @@ TextureImporter:
       name: Collectables_2
       rect:
         serializedVersion: 2
-        x: 304
+        x: 306
         y: 930
-        width: 38
+        width: 35
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -215,10 +220,10 @@ TextureImporter:
       name: Collectables_3
       rect:
         serializedVersion: 2
-        x: 432
-        y: 928
-        width: 32
-        height: 62
+        x: 434
+        y: 930
+        width: 28
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,9 +241,9 @@ TextureImporter:
       name: Collectables_4
       rect:
         serializedVersion: 2
-        x: 560
+        x: 562
         y: 930
-        width: 32
+        width: 28
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -257,9 +262,9 @@ TextureImporter:
       name: Collectables_5
       rect:
         serializedVersion: 2
-        x: 682
+        x: 683
         y: 933
-        width: 36
+        width: 35
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -278,10 +283,10 @@ TextureImporter:
       name: Collectables_6
       rect:
         serializedVersion: 2
-        x: 804
-        y: 928
-        width: 48
-        height: 64
+        x: 806
+        y: 930
+        width: 45
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -488,9 +493,9 @@ TextureImporter:
       name: Collectables_16
       rect:
         serializedVersion: 2
-        x: 636
+        x: 637
         y: 636
-        width: 68
+        width: 65
         height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -530,9 +535,9 @@ TextureImporter:
       name: Collectables_18
       rect:
         serializedVersion: 2
-        x: 788
+        x: 789
         y: 623
-        width: 91
+        width: 44
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -543,6 +548,27 @@ TextureImporter:
       bones: []
       spriteID: 498af0560c88b1c499d623c36533a481
       internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Collectables_19
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 623
+        width: 45
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab168babb9200b848a9378c58278d3f5
+      internalID: 820944497
       vertices: []
       indices: 
       edges: []
@@ -558,28 +584,28 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Collectables_9: 21300018
-      Collectables_4: 21300008
-      Collectables_3: 21300006
-      Collectables_8: 21300016
-      Collectables_2: 21300004
-      Collectables_17: 21300034
       Collectables_0: 21300000
-      Collectables_10: 21300020
-      Collectables_16: 21300032
-      Collectables_13: 21300026
-      Collectables_11: 21300022
-      Collectables_6: 21300012
       Collectables_1: 21300002
-      Collectables_14: 21300028
-      Collectables_18: 21300036
+      Collectables_10: 21300020
+      Collectables_11: 21300022
       Collectables_12: 21300024
-      Collectables_5: 21300010
-      Collectables_7: 21300014
+      Collectables_13: 21300026
+      Collectables_14: 21300028
       Collectables_15: 21300030
-  spritePackingTag: 
+      Collectables_16: 21300032
+      Collectables_17: 21300034
+      Collectables_18: 21300036
+      Collectables_19: 820944497
+      Collectables_2: 21300004
+      Collectables_3: 21300006
+      Collectables_4: 21300008
+      Collectables_5: 21300010
+      Collectables_6: 21300012
+      Collectables_7: 21300014
+      Collectables_8: 21300016
+      Collectables_9: 21300018
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
