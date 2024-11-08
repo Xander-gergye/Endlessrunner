@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public int coinsCollected;
     public bool shieldActive;
     public GameObject shield;
+    public SoundEffectsManager sfxManager;
+    bool playerIsFalling;
     private void Start()
     {
         lastYPos = transform.position.y;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         if (jump == true)
         {
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            
             jump = false;
         }
     }
@@ -47,10 +50,12 @@ public class Player : MonoBehaviour
         if(transform.position.y < lastYPos)
         {
             anim.SetBool("Falling", true);
+            playerIsFalling = true;
         }
         else
         {
             anim.SetBool("Falling", false);
+            playerIsFalling = false;
         }
 
         lastYPos = transform.position.y;        
@@ -65,6 +70,11 @@ public class Player : MonoBehaviour
                 if(AirJump == true && isGrounded == false)
                 {
                     AirJump = false;
+                    sfxManager.PlaySFX("DoubleJump");
+                }
+                else 
+                {
+                    sfxManager.PlaySFX("Jump");
                 }
                 jump = true;
                 anim.SetTrigger("Jump");
@@ -82,6 +92,11 @@ public class Player : MonoBehaviour
             {
                 isGrounded = true;
                 anim.SetBool("IsGrounded", true);
+                if (playerIsFalling == true)
+                {
+                    sfxManager.PlaySFX("Land");
+                }
+                
             }
             else
             {
@@ -101,10 +116,12 @@ public class Player : MonoBehaviour
             {
                 shield.SetActive(false);
                 Destroy(collision.gameObject);
+                sfxManager.PlaySFX("ShielfBreak");
                 shieldActive = false;
             }
             else 
             {
+                sfxManager.PlaySFX("GameOverHit");
                 uiController.ShowGameOverScreen();
             }
         }
@@ -115,12 +132,14 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Coin"))
         {
             coinsCollected++;
+            sfxManager.PlaySFX("Coin");
             Destroy(collision.gameObject);
         }
 
         if (collision.CompareTag("AirJump"))
         {
             AirJump = true;
+            sfxManager.PlaySFX("DoubleJumpPowerUp");
             Destroy(collision.gameObject);
         }
         
@@ -128,6 +147,7 @@ public class Player : MonoBehaviour
         {
             shieldActive = true;
             shield.SetActive(true);
+            sfxManager.PlaySFX("ShieldPowerUp");
             Destroy(collision.gameObject);
         }
     }
